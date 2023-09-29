@@ -50,7 +50,7 @@ public class UserController {
         return "change";
     }
 
-    @PostMapping("/change/{id}")
+    @PatchMapping("/change/{id}")
     public String update(@ModelAttribute("user") @Valid User user, BindingResult bindResult) {
         if (bindResult.hasErrors()) {
             return "change";
@@ -60,7 +60,7 @@ public class UserController {
         return "redirect:/";
     }
 
-    @RequestMapping("/deleteUser")
+    @DeleteMapping ("/deleteUser")
     public String delete(@RequestParam("id") Long id) {
         userService.delete(id);
         return "redirect:/";
